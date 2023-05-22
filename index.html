@@ -27,6 +27,7 @@
 <head>
     <title>BadStuff Game</title>
     <link href="style.css" type="text/css" rel="stylesheet"/>
+    <link href="https://dl.dafont.com/dl/?f=river_adventurer"/>
     <script src="swiped-events.js"></script>
     <script src="snake.js"></script>
     
@@ -34,9 +35,38 @@
 </head>
 
 <body onload="start()">
-    <div class="root">
-        <a href="https://github.com/ourtigarage/web-snake"></a>
-        <div class="game-board" name="game-board"></div>
+    <div class="root" id="root">
+        <div class="root" id="root">
+            <div id="menu" width="1280" height="976">
+                <div id="title">
+                    <img src="Titolo.png">
+                    <p>
+                        Corre l'anno 2000, la Nokia annuncia quello che poi diventerà una pietra miliare ("pietra" anche nel senso letterario) nel mondo dei cellulari: 
+                        <br>il modello 3310. 
+                        <br>Indistruttibile, intramontabile, questo modello viene ricordato per un videogioco che ha segnato l'infanzia di molti di noi...
+                        <br>Non ti viene in mente niente?
+                    </p>
+                    <p>
+                        I tre nostalgici con il maggior punteggio potranno:
+                        <span>
+                            <br>1. Vincere un ingresso gratuito
+                            <br>2. Vincere una consumazione (drink)
+                            <br>3. Vincere una copia formato poster della locandina
+                        </span>
+                    </p>
+                    <p>
+                        I vincitori ritireranno il ticket all'ingresso il giorno stesso dell'evento, adesso tuffati nel passato e divertiti! Good Luck!<br>
+                    </p>
+                    <span>
+                        Istruzioni:<br>
+                        Fai scorrere il dito verso direzione desiderata e raccogli più fattoni possibili.<br>
+                        Attento agli ostacoli e a non morderti la coda!
+                    </span>
+                    <input type="button" value="Start" onclick="play()">
+                </div>
+                
+        </div>
+        <div class="game-board" name="game-board" class="hide"></div>
         <!-- left -->
         <div class="score-panel">
             <button id="restart" class="hide" onclick="restart()">Start New</button>
