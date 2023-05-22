@@ -22,8 +22,6 @@
     SOFTWARE.
 */
 
-
-
 // Class representing the game
 class Game {
   // Build a new game with the given pixel width and height
