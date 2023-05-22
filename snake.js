@@ -21,7 +21,13 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 */
+import 'swiped-events.js';
 
+document.addEventListener('swiped', function(e) {
+  console.log(e.target); // element that was swiped
+  console.log(e.detail); // see event data below
+  console.log(e.detail.dir); // swipe direction
+});
 // Class representing the game
 class Game {
   // Build a new game with the given pixel width and height
