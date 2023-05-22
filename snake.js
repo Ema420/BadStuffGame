@@ -21,13 +21,9 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 */
-import 'swiped-events.js';
 
-document.addEventListener('swiped', function(e) {
-  console.log(e.target); // element that was swiped
-  console.log(e.detail); // see event data below
-  console.log(e.detail.dir); // swipe direction
-});
+
+
 // Class representing the game
 class Game {
   // Build a new game with the given pixel width and height
@@ -51,6 +47,51 @@ class Game {
     this.scoreHtmlElmt = document.getElementById("score");
     this.addFood();
   }
+  
+  move(e) {
+    var popup = document.getElementById("pausePopup");
+      if(e.detail.dir == "left"){
+        console.log('bravo');
+      }
+      switch (e.detail.dir) {
+        case "left":
+          console.log('leftyyyyyyyyyyyyyyyyyy');
+          if (this.nextMove != "right" && !this.alreadyMoved) {
+            this.nextMove = "left";
+            this.alreadyMoved = true;
+            console.log(this.nextMove);
+          }
+          break;
+        case "up":
+          if (this.nextMove != "down" && !this.alreadyMoved) {
+            this.nextMove = "up";
+            this.alreadyMoved = true;
+          }
+          break;
+        case "right":
+          if (this.nextMove != "left" && !this.alreadyMoved) {
+            this.nextMove = "right";
+            this.alreadyMoved = true;
+          }
+          break;
+        case "down":
+          if (this.nextMove != "up" && !this.alreadyMoved) {
+            this.nextMove = "down";
+            this.alreadyMoved = true;
+          }
+          break;
+        case " ":
+          this.nextMove = undefined;
+          this.alreadyMoved = false;
+          console.log('stupido');
+          break;
+        default:
+          console.log('coglio');
+          // Do nothing just ignore it
+          break;
+      }
+  }
+  
 
   // Callback function called when a keyboard key
   // is pushed down
@@ -58,7 +99,7 @@ class Game {
     console.log(e);
     //Get the pause popup div
     var popup = document.getElementById("pausePopup");
-
+    console.log(e.key);
     switch (e.key) {
       case "ArrowLeft":
         if (this.nextMove != "right" && !this.alreadyMoved) {
@@ -83,10 +124,6 @@ class Game {
           this.nextMove = "down";
           this.alreadyMoved = true;
         }
-        break;
-      case " ":
-        this.nextMove = undefined;
-        this.alreadyMoved = false;
         break;
       default:
         // Do nothing just ignore it
@@ -253,6 +290,16 @@ function start() {
   document.onkeydown = function(e) {
     game.keyDown(e);
   };
+  document.addEventListener('swiped', function(e) {
+    //console.log(e.target); // element that was swiped
+    //console.log(e.detail); // see event data below
+    console.log(e.detail.dir); // swipe direction
+    //console.log(e);
+  
+    game.move(e);
+  
+  });
+  
   var ctx = canvas.getContext("2d");
   loop(game, ctx);
 }
