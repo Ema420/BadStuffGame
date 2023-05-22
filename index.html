@@ -35,12 +35,15 @@
     
 </head>
 
-<body onload="start()">
+<body>
     <div class="root" id="root">
         <div class="root" id="root">
             <div id="menu" width="1280" height="976">
+                <header>
+                    <div id ="overlay"></div>
                 <div id="title">
                     <img src="Titolo.png">
+                <div id="istr">
                     <p>
                         Corre l'anno 2000, la Nokia annuncia quello che poi diventerà una pietra miliare ("pietra" anche nel senso letterario) nel mondo dei cellulari: 
                         <br>il modello 3310. 
@@ -63,18 +66,23 @@
                         Fai scorrere il dito verso direzione desiderata e raccogli più fattoni possibili.<br>
                         Attento agli ostacoli e a non morderti la coda!
                     </span>
-                    <input type="button" value="Start" onclick="play()">
+                    <br>
+                    <input type="button" value="Start" onclick="play()"></input>
                 </div>
-                
+            </header>
+            </div>
         </div>
+        
         <div class="game-board" name="game-board" class="hide"></div>
         <!-- left -->
         <div class="score-panel">
             <button id="restart" class="hide" onclick="restart()">Start New</button>
-            <input type="button" value="PLAY" onclick="play()">
-            <font color="yellow">Score:
+            <string id="punteggio">Classifica: </string>
+
+            
+            <string color="yellow">Score:
                 <span id="score">0</span>
-            </font>
+            </string>
         </div>
     </div>
     
