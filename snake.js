@@ -281,10 +281,35 @@ function start() {
   canvas.setAttribute("width",window.screen.availWidth);
   canvas.setAttribute("height",window.screen.availHeight);
   canvas.setAttribute("id","game");
-  
+  canvas.setAttribute("class","hide");
   console.log(div);
   div[0].appendChild(canvas);
   console.log(canvas);
+
+  //const menu = document.createElement('div');
+  //const root = document.getElementById("root");
+  //console.log(root)
+  //root.insertBefore(menu,div[0]);
+  //console.log(menu);
+  //menu.setAttribute("id","menu");
+  //menu.setAttribute("width",window.screen.availWidth);
+  //menu.setAttribute("height",window.screen.availHeight);
+  //const title = document.createElement('div');
+  //title.setAttribute("id","title");
+  //menu.appendChild(title);
+  
+  //const img1 = document.createElement("img");
+  //img1.setAttribute("src","Titolo.png")
+  //title.appendChild(img1);
+
+  //const ist = document.createElement('p');
+  //ist.setAttribute("id","ist");
+  //title.appendChild(ist);
+  //const img2 = document.createElement("img");
+  //img2.setAttribute("src","Istruzioni.png")
+ // ist.appendChild(img2);
+
+
   game = new Game(window.screen.availWidth, window.screen.availHeight);
   console.log(window.screen.availWidth);
   document.onkeydown = function(e) {
