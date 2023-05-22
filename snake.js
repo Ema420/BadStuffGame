@@ -273,15 +273,19 @@ function play() {
   var audio = document.getElementById("audio");
   console.log(audio);
   audio.play();
+  start();
 }
 
 function start() {
+  const menu = document.getElementById("menu");
+  menu.setAttribute("class","hide");
+
   var div = document.getElementsByName("game-board");
   var canvas = document.createElement("canvas");
   canvas.setAttribute("width",window.screen.availWidth);
   canvas.setAttribute("height",window.screen.availHeight);
   canvas.setAttribute("id","game");
-  canvas.setAttribute("class","hide");
+ 
   console.log(div);
   div[0].appendChild(canvas);
   console.log(canvas);
