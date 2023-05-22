@@ -1,19 +1,22 @@
 body {
-    background-color: #000000;
+  background-color: aqua;
+  background-image: url("sfondo.png");
+  background-position: top;
+  background-size: cover;
+  z-index: -2
+
   }
   
   .root {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100%;
-    height: 100%;
+    z-index: 0;
   }
   
   canvas {
     background-color: #ffffff; 
-    width: 100%;
-    height: 100%;
+    
   }
   
   .banner {
@@ -55,19 +58,28 @@ body {
     background-image: url("sfondo.png");
     background-position: top;
     background-size: cover;
-    width: 100%;
-    height: 100%;
+    z-index: -2
+  }
+  #istr {
+    margin-top: -22px;
   }
   
   img {
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
   }
   input {
     display: flex;
     justify-content: center;
-    width: 10%;
-    height: 10%;
+    width: 20%;
+    height: 20%;
+    margin-bottom: 20px;
+    padding: 10px 0px 10px 0px;
+    font-size: 22px;
+    z-index: 1;
+  }
+  input:hover {
+    background-color: red;
   }
 
   @font-face {
@@ -75,8 +87,32 @@ body {
     src: url("test.ttf");
   }
   
-  p, span {
+  p, span, string {
     font-family: "test", sans-serif;
-    font-size: 20px;
+    font-size: 17px;
+    z-index: 0;
+    color: white;
   }
- 
+  string {
+    letter-spacing: 0.2px;
+  }
+  #overlay {
+    background-color:
+      rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  header {
+    position: relative;
+    z-index: -2;
+  }
+  input {
+    font-family: "test";
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+  }
