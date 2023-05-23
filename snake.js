@@ -33,8 +33,8 @@ class Game {
     this.alreadyMoved = false;
     this.width = width;
     this.height = height;
-    this.tileWidth = width / 60;
-    this.tileHeight = height / 60;
+    this.tileWidth = 10;
+    this.tileHeight = 10;
     // Initialize a 1 sized snake at the center of the game board
     this.snake = [
       [
@@ -50,12 +50,10 @@ class Game {
   
   move(e) {
     var popup = document.getElementById("pausePopup");
-      if(e.detail.dir == "left"){
-        console.log('bravo');
-      }
+      
       switch (e.detail.dir) {
         case "left":
-          console.log('leftyyyyyyyyyyyyyyyyyy');
+          
           if (this.nextMove != "right" && !this.alreadyMoved) {
             this.nextMove = "left";
             this.alreadyMoved = true;
@@ -83,10 +81,10 @@ class Game {
         case " ":
           this.nextMove = undefined;
           this.alreadyMoved = false;
-          console.log('stupido');
+          
           break;
         default:
-          console.log('coglio');
+          
           // Do nothing just ignore it
           break;
       }
@@ -234,10 +232,15 @@ class Game {
         this.tileHeight
       );
     }
+    console.log(ctx);
 
     // Draw the food
     var food = new Image();
-    food.src = "ghost.ico";
+    food.src = "fattone.png";
+    
+    food.setAttribute("id","food");
+    console.log(food);
+
     ctx.drawImage(
       food,
       this.food[0] * this.tileWidth,
@@ -245,10 +248,15 @@ class Game {
     );
     //GameOver
     if (this.gameover) {
-      document.querySelector("#restart").classList.remove("hide");
-      var audio = new AudioContext();
-      audio.pause();
-      ctx.font = "48px serif";
+      document.querySelector("#game-board").classList.remove("hide");
+      var over = document.getElementById("over");
+      document.getElementById("theme").pause();
+      console.log(over);
+      over.play();
+      
+
+      
+      ctx.font = "100px test1";
       ctx.fillStyle = "black";
       var displayGameOver = "GAME OVER";
       var text = ctx.measureText(displayGameOver);
@@ -270,9 +278,10 @@ class Game {
 }
 
 function play() {
-  var audio = document.getElementById("audio");
-  console.log(audio);
+  var audio = document.getElementById("theme");
+  
   audio.play();
+  console.log(audio);
   start();
 }
 
@@ -280,15 +289,23 @@ function start() {
   const menu = document.getElementById("menu");
   menu.setAttribute("class","hide");
 
-  var div = document.getElementsByName("game-board");
+
+  var div = document.getElementById("score-panel");
+  div.setAttribute("class","hide");
+
   var canvas = document.createElement("canvas");
-  canvas.setAttribute("width",window.screen.availWidth);
-  canvas.setAttribute("height",window.screen.availHeight);
+  canvas.setAttribute("width",window.screen.width);
+  canvas.setAttribute("height",window.screen.height);
   canvas.setAttribute("id","game");
  
+  var board = document.getElementById("game-board");
+
+  board.appendChild(canvas);
   console.log(div);
-  div[0].appendChild(canvas);
-  console.log(canvas);
+
+
+  
+  console.log(localStorage);
 
   //const menu = document.createElement('div');
   //const root = document.getElementById("root");
@@ -314,11 +331,14 @@ function start() {
  // ist.appendChild(img2);
 
 
-  game = new Game(window.screen.availWidth, window.screen.availHeight);
-  console.log(window.screen.availWidth);
+  game = new Game(window.screen.width, window.screen.height);
+  console.log(window.screen.width);
   document.onkeydown = function(e) {
     game.keyDown(e);
   };
+
+  console.log(game);
+
   document.addEventListener('swiped', function(e) {
     //console.log(e.target); // element that was swiped
     //console.log(e.detail); // see event data below
