@@ -36,46 +36,45 @@
 </head>
 
 <body>
-    <div class="root" id="root">
         <div class="root" id="root">
-            <div id="menu" width="1280" height="976">
+            <div id="menu">
                 <header>
                     <div id ="overlay"></div>
-                <div id="title">
-                    <img src="Titolo.png">
-                <div id="istr">
-                    <p>
-                        Corre l'anno 2000, la Nokia annuncia quello che poi diventerà una pietra miliare ("pietra" anche nel senso letterario) nel mondo dei cellulari: 
-                        <br>il modello 3310. 
-                        <br>Indistruttibile, intramontabile, questo modello viene ricordato per un videogioco che ha segnato l'infanzia di molti di noi...
-                        <br>Non ti viene in mente niente?
-                    </p>
-                    <p>
-                        I tre nostalgici con il maggior punteggio potranno:
+                    <div id="title">
+                        <img src="Titolo.png">
+                        <div id="istr">
+                        <p>
+                            Corre l'anno 2000, la Nokia annuncia quello che poi diventerà una pietra miliare ("pietra" anche nel senso letterario) nel mondo dei cellulari: 
+                            <br>il modello 3310. 
+                            <br>Indistruttibile, intramontabile, questo modello viene ricordato per un videogioco che ha segnato l'infanzia di molti di noi...
+                            <br>Non ti viene in mente niente?
+                        </p>
+                        <p>
+                            I tre nostalgici con il maggior punteggio potranno:
+                            <span>
+                                <br>1. Vincere un ingresso gratuito
+                                <br>2. Vincere una consumazione (drink)
+                                <br>3. Vincere una copia formato poster della locandina
+                            </span>
+                        </p>
+                        <p>
+                            I vincitori ritireranno il ticket all'ingresso il giorno stesso dell'evento, adesso tuffati nel passato e divertiti! Good Luck!<br>
+                        </p>
                         <span>
-                            <br>1. Vincere un ingresso gratuito
-                            <br>2. Vincere una consumazione (drink)
-                            <br>3. Vincere una copia formato poster della locandina
+                            Istruzioni:<br>
+                            Fai scorrere il dito verso la direzione desiderata e raccogli più fattoni possibili.<br>
+                            Attento agli ostacoli e a non morderti la coda!
                         </span>
-                    </p>
-                    <p>
-                        I vincitori ritireranno il ticket all'ingresso il giorno stesso dell'evento, adesso tuffati nel passato e divertiti! Good Luck!<br>
-                    </p>
-                    <span>
-                        Istruzioni:<br>
-                        Fai scorrere il dito verso direzione desiderata e raccogli più fattoni possibili.<br>
-                        Attento agli ostacoli e a non morderti la coda!
-                    </span>
-                    <br>
-                    <input type="button" value="Start" onclick="play()"></input>
-                </div>
-            </header>
+                        <br>
+                        <input type="button" value="Start" onclick="play()"></input>
+                    </div>
+                </header>
             </div>
         </div>
         
-        <div class="game-board" name="game-board" class="hide"></div>
+        <div class="game-board" name="game-board" class="hide" id="game-board"></div>
         <!-- left -->
-        <div class="score-panel">
+        <div class="score-panel" id="score-panel">
             <button id="restart" class="hide" onclick="restart()">Start New</button>
             <string id="punteggio">Classifica: </string>
 
@@ -84,11 +83,9 @@
                 <span id="score">0</span>
             </string>
         </div>
-    </div>
     
-    <audio id="audio" src="Citadel Station.mp3">
-       
-    </audio>
+    <audio id="theme" src="Citadel Station.mp3"></audio>
+    <audio id="over" src="gameover.mp3"></audio>
 </body>
 
 </html>
