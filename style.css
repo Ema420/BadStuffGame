@@ -7,11 +7,13 @@ body {
 
   }
   
-  .root {
+  #root {
     display: flex;
     flex-direction: column;
     text-align: center;
+    position: relative;
     z-index: 0;
+    
   }
   
   canvas {
@@ -54,7 +56,7 @@ body {
   }
 
   #menu {
-    background-color: aqua;
+    
     background-image: url("sfondo.png");
     background-position: top;
     background-size: cover;
@@ -79,12 +81,16 @@ body {
     z-index: 1;
   }
   input:hover {
-    background-color: red;
+    background-color: #991d17;
   }
 
   @font-face {
     font-family: "test";
     src: url("test.ttf");
+  }
+  @font-face {
+    font-family: "test1";
+    src: url("Destone.otf");
   }
   
   p, span, string {
@@ -115,4 +121,8 @@ body {
     border-radius: 10px;
     border: none;
     background-color: white;
+  }
+  #food {
+    width: 10%;
+    height: 10%;
   }
